@@ -1,0 +1,55 @@
+{
+  "name": "sindscream/laravel-smart-scheduler",
+  "description": "Environment-aware scheduled commands for Laravel: declare a different schedule frequency per environment directly on the command.",
+  "type": "library",
+  "keywords": [
+    "laravel",
+    "scheduler",
+    "schedule",
+    "cron",
+    "console",
+    "command",
+    "environment"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aleh Leushunou",
+      "email": "oleglevshunov1988@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.3",
+    "illuminate/console": "^10.0|^11.0",
+    "illuminate/support": "^10.0|^11.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0",
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sindscream\\SmartScheduler\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sindscream\\SmartScheduler\\Tests\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Sindscream\\SmartScheduler\\SchedulerServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
