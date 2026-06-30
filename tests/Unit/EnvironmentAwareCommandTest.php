@@ -17,7 +17,7 @@ class EnvironmentAwareCommandTest extends TestCase
         return [SchedulerServiceProvider::class];
     }
 
-    public function test_it_applies_the_environment_specific_frequency(): void
+    public function testItAppliesTheEnvironmentSpecificFrequency(): void
     {
         $this->assertScheduledWithExpression(
             FixtureScheduleCommand::class,
@@ -32,7 +32,7 @@ class EnvironmentAwareCommandTest extends TestCase
         );
     }
 
-    public function test_it_falls_back_to_the_default_frequency(): void
+    public function testItFallsBackToTheDefaultFrequency(): void
     {
         $this->assertScheduledWithExpression(
             FixtureScheduleCommand::class,
@@ -41,17 +41,17 @@ class EnvironmentAwareCommandTest extends TestCase
         );
     }
 
-    public function test_it_does_not_schedule_when_environment_is_absent_and_no_default(): void
+    public function testItDoesNotScheduleWhenEnvironmentIsAbsentAndNoDefault(): void
     {
         $this->assertNotScheduled(FixtureNoDefaultCommand::class, 'local');
     }
 
-    public function test_it_skips_scheduling_in_testing_by_default(): void
+    public function testItSkipsSchedulingInTestingByDefault(): void
     {
         $this->assertNotScheduled(FixtureScheduleCommand::class, 'testing');
     }
 
-    public function test_it_schedules_in_testing_when_explicitly_enabled(): void
+    public function testItSchedulesInTestingWhenExplicitlyEnabled(): void
     {
         config(['env-scheduler.run_in_tests' => true]);
 
